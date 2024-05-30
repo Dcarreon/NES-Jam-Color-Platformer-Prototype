@@ -1,9 +1,10 @@
-[gd_scene load_steps=31 format=3 uid="uid://cek5o7xhic0md"]
+[gd_scene load_steps=32 format=3 uid="uid://cek5o7xhic0md"]
 
 [ext_resource type="Script" path="res://scripts/player.cs" id="1_0hli5"]
 [ext_resource type="Texture2D" uid="uid://dk5ypg8vqs0sg" path="res://assets/knight.png" id="1_8pqu7"]
 [ext_resource type="Script" path="res://scripts/StateMachine.cs" id="2_gyj1p"]
 [ext_resource type="Script" path="res://scripts/PlayerMoveState.cs" id="4_gfyrd"]
+[ext_resource type="Script" path="res://scripts/PlayerInAirState.cs" id="5_gdpv1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ec033"]
 atlas = ExtResource("1_8pqu7")
@@ -209,8 +210,12 @@ shape = SubResource("CircleShape2D_8f224")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("State")]
 script = ExtResource("2_gyj1p")
-State = NodePath("PlayerMoveState")
+State = NodePath("PlayerInAirState")
 
 [node name="PlayerMoveState" type="Node" parent="StateMachine" node_paths=PackedStringArray("Player")]
 script = ExtResource("4_gfyrd")
+Player = NodePath("../..")
+
+[node name="PlayerInAirState" type="Node" parent="StateMachine" node_paths=PackedStringArray("Player")]
+script = ExtResource("5_gdpv1")
 Player = NodePath("../..")
