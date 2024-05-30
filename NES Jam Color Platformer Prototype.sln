@@ -1,0 +1,19 @@
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NES Jam Color Platformer Prototype", "NES Jam Color Platformer Prototype.csproj", "{21D2F6C5-6426-45F3-A4B0-33DB4D7D237B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+	Debug|Any CPU = Debug|Any CPU
+	ExportDebug|Any CPU = ExportDebug|Any CPU
+	ExportRelease|Any CPU = ExportRelease|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{21D2F6C5-6426-45F3-A4B0-33DB4D7D237B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21D2F6C5-6426-45F3-A4B0-33DB4D7D237B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21D2F6C5-6426-45F3-A4B0-33DB4D7D237B}.ExportDebug|Any CPU.ActiveCfg = ExportDebug|Any CPU
+		{21D2F6C5-6426-45F3-A4B0-33DB4D7D237B}.ExportDebug|Any CPU.Build.0 = ExportDebug|Any CPU
+		{21D2F6C5-6426-45F3-A4B0-33DB4D7D237B}.ExportRelease|Any CPU.ActiveCfg = ExportRelease|Any CPU
+		{21D2F6C5-6426-45F3-A4B0-33DB4D7D237B}.ExportRelease|Any CPU.Build.0 = ExportRelease|Any CPU
+	EndGlobalSection
+EndGlobal
