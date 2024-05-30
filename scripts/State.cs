@@ -7,7 +7,7 @@ public partial class State : Node
 	[Signal]
 	public delegate void FinishedStateEventHandler();
 
-	public void EnterState(){}
+	public virtual void EnterState(){}
 	
-	public void ExitState(){}
+	public virtual void ExitState(){}
 }

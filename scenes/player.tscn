@@ -1,8 +1,9 @@
-[gd_scene load_steps=30 format=3 uid="uid://cek5o7xhic0md"]
+[gd_scene load_steps=31 format=3 uid="uid://cek5o7xhic0md"]
 
 [ext_resource type="Script" path="res://scripts/player.cs" id="1_0hli5"]
 [ext_resource type="Texture2D" uid="uid://dk5ypg8vqs0sg" path="res://assets/knight.png" id="1_8pqu7"]
 [ext_resource type="Script" path="res://scripts/StateMachine.cs" id="2_gyj1p"]
+[ext_resource type="Script" path="res://scripts/PlayerMoveState.cs" id="4_gfyrd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ec033"]
 atlas = ExtResource("1_8pqu7")
@@ -200,11 +201,16 @@ script = ExtResource("1_0hli5")
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_7nkk4")
 animation = &"idle"
-frame_progress = 0.168895
+frame_progress = 0.489648
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -5)
 shape = SubResource("CircleShape2D_8f224")
 
-[node name="StateMachine" type="Node" parent="."]
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("State")]
 script = ExtResource("2_gyj1p")
+State = NodePath("PlayerMoveState")
+
+[node name="PlayerMoveState" type="Node" parent="StateMachine" node_paths=PackedStringArray("Player")]
+script = ExtResource("4_gfyrd")
+Player = NodePath("../..")
