@@ -28,7 +28,6 @@ public partial class PlayerMoveState : State
     public override void ExitState()
     {
         StateEnabled = false;
-        //EmitSignal(SignalName.PlayerStoppedMovement);
     }
 
     public override void _PhysicsProcess(double delta)
