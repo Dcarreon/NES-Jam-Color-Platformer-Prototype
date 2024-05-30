@@ -9,7 +9,7 @@ public partial class PlayerMoveState : State
 
     [Export]
     player Player;
-	public const float Speed = 300.0f;
+	public const float Speed = 150.0f;
 	public const float JumpVelocity = -400.0f;
 
     bool StateEnabled = false;
@@ -46,6 +46,20 @@ public partial class PlayerMoveState : State
             else
             {
                 velocity.X = Mathf.MoveToward(Player.Velocity.X, 0, Speed);
+            }
+
+            if (direction.X > 0) {
+                Player.AnimatedSprite.FlipH = false;
+            }
+            else if (direction.X < 0) {
+                Player.AnimatedSprite.FlipH = true;
+            }
+
+            if (direction.X == 0) {
+                Player.AnimatedSprite.Play("idle");
+            }
+            else {
+                Player.AnimatedSprite.Play("run");
             }
 
             Player.Velocity = velocity;
