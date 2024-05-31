@@ -27,8 +27,5 @@ public partial class player : CharacterBody2D
 			velocity.Y += gravity * (float)delta;
 			Velocity = velocity;
 		}
-		if (IsOnFloor()) {
-            AnimatedSprite.Play("idle");
-		}
 	}
 }

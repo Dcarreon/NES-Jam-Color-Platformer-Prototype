@@ -28,6 +28,7 @@ public partial class PlayerInAirState : State
         Player.AnimatedSprite.Play("jump");
         
         if (Player.IsOnFloor()) {
+            Player.AnimatedSprite.Play("idle");
             EmitSignal(SignalName.PlayerNotInAir);
         }
 
