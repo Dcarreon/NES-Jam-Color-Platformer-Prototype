@@ -1,6 +1,7 @@
 using Godot;
 using System;
 
+[GlobalClass]
 public partial class PlayerWheelInputState : State
 {
     [Export]
@@ -17,6 +18,7 @@ public partial class PlayerWheelInputState : State
         SetPhysicsProcess(true);
         SetProcess(true);
     }
+
     public override void ExitState() 
     {
         SetPhysicsProcess(false);
@@ -28,6 +30,13 @@ public partial class PlayerWheelInputState : State
     }
 
     public override void _PhysicsProcess(double delta) {
+        Vector2 velocity = Player.Velocity;
+        Vector2 direction = Input.GetVector("left", "right", "up", "down");
+        if (direction.X == 0 && Player.IsOnFloor()) {
+            Player.AnimatedSprite.Play("idle");
+            velocity.X = Mathf.MoveToward(Player.Velocity.X, 0, Player.Speed);
+        }
+        Player.Velocity = velocity;
         Player.MoveAndSlide();
     }
 }

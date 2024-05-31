@@ -1,12 +1,21 @@
 using Godot;
 using System;
-using System.Diagnostics;
 
 public partial class ColorOptions : Control
 {
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		Visible = false;
+		SetProcess(false);
+	}
+
+	public void Activated() {
+		Visible = true;
+		SetProcess(true);
+	}
+
+	public void Deactivate() {
 		Visible = false;
 		SetProcess(false);
 	}
