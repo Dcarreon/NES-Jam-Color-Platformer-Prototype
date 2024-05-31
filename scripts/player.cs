@@ -24,5 +24,8 @@ public partial class player : CharacterBody2D
 		if (!IsOnFloor()) {
 			PlayerStateMachine.ChangeState(InAirState);
 		}
+		if (IsOnFloor()) {
+            AnimatedSprite.Play("idle");
+		}
 	}
 }
