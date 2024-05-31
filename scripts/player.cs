@@ -3,6 +3,8 @@ using System;
 
 public partial class player : CharacterBody2D
 {
+	[Export]
+	ColorOptions ColorWheel;
 	public AnimatedSprite2D AnimatedSprite;
 	StateMachine PlayerStateMachine;
 	PlayerMoveState MoveState;
@@ -10,7 +12,7 @@ public partial class player : CharacterBody2D
 	PlayerWheelInputState WheelInputState;
 	public float gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
 	public float Speed = 150.0f;
-	bool EnableStateChange = true;
+	bool ColorWheelInactive = true; // Hard coded solution honestly
 
     public override void _Ready()
     {
@@ -20,17 +22,19 @@ public partial class player : CharacterBody2D
 		InAirState = GetNode<PlayerInAirState>("StateMachine/PlayerInAirState");
 		WheelInputState = GetNode<PlayerWheelInputState>("StateMachine/PlayerWheelInputState");
 
-		if (EnableStateChange) InAirState.PlayerNotInAir += () => PlayerStateMachine.ChangeState(MoveState);
+		if (ColorWheelInactive) InAirState.PlayerNotInAir += () => PlayerStateMachine.ChangeState(MoveState);
+		WheelInputState.PlayerWheelInputEntered += () => ColorWheel.Activated();
+		WheelInputState.PlayerWheelInputExited += () => ColorWheel.Deactivated();
     }
 
     public override void _Process(double delta)
     {
 		if (Input.IsActionJustPressed("b_key")) {
-			EnableStateChange = false;
+			ColorWheelInactive = false;
 			PlayerStateMachine.ChangeState(WheelInputState);
 		}
 		else if (Input.IsActionJustReleased("b_key")) {
-			EnableStateChange = true;
+			ColorWheelInactive = true;
 			PlayerStateMachine.ChangeState(InAirState);
 		}
     }
@@ -42,7 +46,7 @@ public partial class player : CharacterBody2D
 		Vector2 velocity = Velocity;
 
 		if (!IsOnFloor()) {
-			if (EnableStateChange) PlayerStateMachine.ChangeState(InAirState);
+			if (ColorWheelInactive) PlayerStateMachine.ChangeState(InAirState);
 			velocity.Y += gravity * (float)delta;
 		}
 		Velocity = velocity;

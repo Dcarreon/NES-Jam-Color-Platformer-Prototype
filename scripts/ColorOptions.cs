@@ -15,7 +15,7 @@ public partial class ColorOptions : Control
 		SetProcess(true);
 	}
 
-	public void Deactivate() {
+	public void Deactivated() {
 		Visible = false;
 		SetProcess(false);
 	}
