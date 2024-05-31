@@ -32,7 +32,6 @@ public partial class PlayerInAirState : State
         Player.Velocity = velocity;
         
         if (Player.IsOnFloor()) {
-            Player.AnimatedSprite.Play("idle");
             EmitSignal(SignalName.PlayerNotInAir);
         }
 
