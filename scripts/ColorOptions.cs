@@ -1,11 +1,14 @@
 using Godot;
 using System;
+using System.Diagnostics;
 
-public partial class color_options : Control
+public partial class ColorOptions : Control
 {
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		Visible = false;
+		SetProcess(false);
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

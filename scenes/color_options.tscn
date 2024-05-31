@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://bgtlybjv1skqc"]
+[gd_scene load_steps=7 format=3 uid="uid://bgtlybjv1skqc"]
 
+[ext_resource type="Script" path="res://scripts/ColorOptions.cs" id="1_3kdg5"]
 [ext_resource type="FontFile" uid="uid://debu2fperj6r0" path="res://fonts/PixelOperator8.ttf" id="1_rit22"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_3g2gt"]
@@ -27,6 +28,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+script = ExtResource("1_3kdg5")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
