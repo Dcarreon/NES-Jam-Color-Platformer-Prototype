@@ -26,6 +26,22 @@ public partial class PlayerInAirState : State
 
     public override void _PhysicsProcess(double delta) {
         Player.AnimatedSprite.Play("jump");
+
+        Vector2 direction = Input.GetVector("left", "right", "up", "down");
+        Vector2 velocity = Player.Velocity;
+
+        if (Input.IsActionJustPressed("right") || Input.IsActionJustPressed("left"))
+        {
+            velocity.X = direction.X * Player.Speed * 0.5f;
+            Player.Velocity = velocity;
+        }
+
+        if (direction.X > 0) {
+            Player.AnimatedSprite.FlipH = false;
+        }
+        else if (direction.X < 0) {
+            Player.AnimatedSprite.FlipH = true;
+        }
         
         if (Player.IsOnFloor()) {
             Player.AnimatedSprite.Play("idle");
