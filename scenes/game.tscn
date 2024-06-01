@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bqg6s4ux1wykv"]
+[gd_scene load_steps=10 format=3 uid="uid://bqg6s4ux1wykv"]
 
 [ext_resource type="Script" path="res://scripts/GameManager.cs" id="1_h7msk"]
 [ext_resource type="Texture2D" uid="uid://cy650qe2mxjp" path="res://assets/world_tileset.png" id="1_uysy6"]
 [ext_resource type="PackedScene" uid="uid://cek5o7xhic0md" path="res://scenes/player.tscn" id="2_ybncc"]
 [ext_resource type="PackedScene" uid="uid://bgtlybjv1skqc" path="res://scenes/color_options.tscn" id="3_wuerg"]
 [ext_resource type="PackedScene" uid="uid://d005xsnruhjm" path="res://scenes/color_platform.tscn" id="5_ck2yl"]
+[ext_resource type="PackedScene" uid="uid://d3o8ipjhuikau" path="res://scenes/killzone.tscn" id="6_7o67b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tydk3"]
 texture = ExtResource("1_uysy6")
@@ -409,6 +410,8 @@ physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_tydk3")
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6f104"]
+
 [node name="game" type="Node2D"]
 script = ExtResource("1_h7msk")
 
@@ -467,12 +470,18 @@ position = Vector2(-66, -288)
 Color = "Beige"
 Game = NodePath("../..")
 
-[node name="ColorPlatform6" parent="ColorPlatforms" node_paths=PackedStringArray("Game") instance=ExtResource("5_ck2yl")]
-position = Vector2(16, -289)
-Color = "Beige"
+[node name="ColorPlatform8" parent="ColorPlatforms" node_paths=PackedStringArray("Game") instance=ExtResource("5_ck2yl")]
+position = Vector2(-136, -87)
+Color = "Green"
 Game = NodePath("../..")
 
-[node name="ColorPlatform7" parent="ColorPlatforms" node_paths=PackedStringArray("Game") instance=ExtResource("5_ck2yl")]
-position = Vector2(98, -288)
-Color = "Beige"
+[node name="ColorPlatform9" parent="ColorPlatforms" node_paths=PackedStringArray("Game") instance=ExtResource("5_ck2yl")]
+position = Vector2(-136, -166)
+Color = "Blue"
 Game = NodePath("../..")
+
+[node name="Killzone" parent="." instance=ExtResource("6_7o67b")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(-112, 150)
+shape = SubResource("WorldBoundaryShape2D_6f104")
