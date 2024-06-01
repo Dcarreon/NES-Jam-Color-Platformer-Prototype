@@ -8,6 +8,14 @@ public partial class PlayerWheelInputState : State
     public delegate void PlayerWheelInputEnteredEventHandler();
     [Signal]
     public delegate void PlayerWheelInputExitedEventHandler();
+    [Signal]
+    public delegate void PlayerWheelUpEventHandler();
+    [Signal]
+    public delegate void PlayerWheelDownEventHandler();
+    [Signal]
+    public delegate void PlayerWheelLeftEventHandler();
+    [Signal]
+    public delegate void PlayerWheelRightEventHandler();
     [Export]
     player Player;
     Vector2 direction = Input.GetVector("left", "right", "up", "down");
@@ -34,6 +42,18 @@ public partial class PlayerWheelInputState : State
 
     public override void _Process(double delta)
     {
+        if (Input.IsActionJustPressed("up")) {
+            EmitSignal(SignalName.PlayerWheelUp);
+        }
+        if (Input.IsActionJustPressed("down")) {
+            EmitSignal(SignalName.PlayerWheelDown);
+        }
+        if (Input.IsActionJustPressed("left")) {
+            EmitSignal(SignalName.PlayerWheelLeft);
+        }
+        if (Input.IsActionJustPressed("right")) {
+            EmitSignal(SignalName.PlayerWheelRight);
+        }
     }
 
     public override void _PhysicsProcess(double delta) {
