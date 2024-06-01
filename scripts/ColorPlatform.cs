@@ -14,7 +14,7 @@ public partial class ColorPlatform : AnimatableBody2D
 
 	public override void _Ready()
 	{
-		CollisionShape = GetNode<CollisionShape2D>("CollisionShape");
+		CollisionShape = GetNode<CollisionShape2D>("CollisionShape2D");
 		Green  = GetNode<Sprite2D>("Green");	
 		Blue   = GetNode<Sprite2D>("Blue");
 		Yellow = GetNode<Sprite2D>("Yellow");
