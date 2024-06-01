@@ -19,6 +19,7 @@ public partial class PlayerWheelInputState : State
     [Export]
     player Player;
     Vector2 direction = Input.GetVector("left", "right", "up", "down");
+    bool Emit = true;
 
     public override void _Ready()
     {
@@ -42,17 +43,26 @@ public partial class PlayerWheelInputState : State
 
     public override void _Process(double delta)
     {
-        if (Input.IsActionJustPressed("up")) {
-            EmitSignal(SignalName.PlayerWheelUp);
+        Vector2 direction = Input.GetVector("left", "right", "up", "down");
+        if (direction.Y < 0 && direction.X == 0) {
+            if (Emit) EmitSignal(SignalName.PlayerWheelUp);
+            Emit = false;
         }
-        if (Input.IsActionJustPressed("down")) {
-            EmitSignal(SignalName.PlayerWheelDown);
+        else if (direction.Y > 0 && direction.X == 0) {
+            if (Emit) EmitSignal(SignalName.PlayerWheelDown);
+            Emit = false;
         }
-        if (Input.IsActionJustPressed("left")) {
-            EmitSignal(SignalName.PlayerWheelLeft);
+        else if (direction.X < 0 && direction.Y == 0) {
+            if (Emit) EmitSignal(SignalName.PlayerWheelLeft);
+            Emit = false;
         }
-        if (Input.IsActionJustPressed("right")) {
-            EmitSignal(SignalName.PlayerWheelRight);
+        else if (direction.X > 0 && direction.Y == 0) {
+            if (Emit) EmitSignal(SignalName.PlayerWheelRight);
+            Emit = false;
+        }
+
+        if (direction == Vector2.Zero) {
+            Emit = true;
         }
     }
 
