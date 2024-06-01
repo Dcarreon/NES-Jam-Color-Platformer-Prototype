@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://d005xsnruhjm"]
+
+[ext_resource type="Texture2D" uid="uid://di3qkdrc3568d" path="res://assets/platforms.png" id="1_iwdeb"]
+[ext_resource type="Script" path="res://scripts/ColorPlatform.cs" id="1_mn4ay"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t4ahj"]
+size = Vector2(32, 8)
+
+[node name="ColorPlatform" type="AnimatableBody2D"]
+script = ExtResource("1_mn4ay")
+
+[node name="Beige" type="Sprite2D" parent="."]
+texture = ExtResource("1_iwdeb")
+region_enabled = true
+region_rect = Rect2(16, 16, 32, 9)
+
+[node name="Yellow" type="Sprite2D" parent="."]
+texture = ExtResource("1_iwdeb")
+region_enabled = true
+region_rect = Rect2(16, 32, 32, 9)
+
+[node name="Blue" type="Sprite2D" parent="."]
+texture = ExtResource("1_iwdeb")
+region_enabled = true
+region_rect = Rect2(16, 48, 32, 9)
+
+[node name="Green" type="Sprite2D" parent="."]
+texture = ExtResource("1_iwdeb")
+region_enabled = true
+region_rect = Rect2(16, 0, 32, 9)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_t4ahj")
