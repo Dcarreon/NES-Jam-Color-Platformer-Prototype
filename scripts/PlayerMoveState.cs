@@ -9,7 +9,7 @@ public partial class PlayerMoveState : State
 
     [Export]
     player Player;
-	public const float JumpVelocity = -400.0f;
+	public float JumpVelocity = -400.0f;
 
     public override void _Ready()
     {

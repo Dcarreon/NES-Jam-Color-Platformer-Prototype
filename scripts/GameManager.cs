@@ -8,6 +8,8 @@ public partial class GameManager : Node2D
 	public override void _Ready()
 	{
 		Player = GetNode<player>("Player");
+		Player.WheelInputState.PlayerWheelInputEntered += () => Engine.TimeScale = 0.25f;
+		Player.WheelInputState.PlayerWheelInputExited += () => Engine.TimeScale = 1.0f;
 		Player.WheelInputState.PlayerWheelUp += () => GD.Print("Player pressing up");
 		Player.WheelInputState.PlayerWheelDown += () => GD.Print("Player pressing down");
 		Player.WheelInputState.PlayerWheelLeft += () => GD.Print("Player pressing left");

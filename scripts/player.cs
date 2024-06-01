@@ -41,14 +41,13 @@ public partial class player : CharacterBody2D
 
     public override void _PhysicsProcess(double delta)
 	{
-        Vector2 direction = Input.GetVector("left", "right", "up", "down");
-
 		Vector2 velocity = Velocity;
 
 		if (!IsOnFloor()) {
 			if (ColorWheelInactive) PlayerStateMachine.ChangeState(InAirState);
 			velocity.Y += gravity * (float)delta;
 		}
+
 		Velocity = velocity;
 	}
 }
