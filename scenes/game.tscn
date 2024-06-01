@@ -442,6 +442,12 @@ size_flags_vertical = 1
 
 [node name="ColorPlatforms" type="Node" parent="."]
 
-[node name="ColorPlatform" parent="ColorPlatforms" instance=ExtResource("5_ck2yl")]
+[node name="ColorPlatform" parent="ColorPlatforms" node_paths=PackedStringArray("Game") instance=ExtResource("5_ck2yl")]
 position = Vector2(208, -32)
 Color = "Blue"
+Game = NodePath("../..")
+
+[node name="ColorPlatform2" parent="ColorPlatforms" node_paths=PackedStringArray("Game") instance=ExtResource("5_ck2yl")]
+position = Vector2(159, -97)
+Color = "Green"
+Game = NodePath("../..")

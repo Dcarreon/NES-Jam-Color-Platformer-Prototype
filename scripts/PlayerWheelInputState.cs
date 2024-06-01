@@ -9,13 +9,13 @@ public partial class PlayerWheelInputState : State
     [Signal]
     public delegate void PlayerWheelInputExitedEventHandler();
     [Signal]
-    public delegate void PlayerWheelUpEventHandler();
+    public delegate void PlayerWheelUpEventHandler(string color);
     [Signal]
-    public delegate void PlayerWheelDownEventHandler();
+    public delegate void PlayerWheelDownEventHandler(string color);
     [Signal]
-    public delegate void PlayerWheelLeftEventHandler();
+    public delegate void PlayerWheelLeftEventHandler(string color);
     [Signal]
-    public delegate void PlayerWheelRightEventHandler();
+    public delegate void PlayerWheelRightEventHandler(string color);
     [Export]
     player Player;
     Vector2 direction = Input.GetVector("left", "right", "up", "down");
@@ -45,19 +45,19 @@ public partial class PlayerWheelInputState : State
     {
         Vector2 direction = Input.GetVector("left", "right", "up", "down");
         if (direction.Y < 0 && direction.X == 0) {
-            if (Emit) EmitSignal(SignalName.PlayerWheelUp);
+            if (Emit) {EmitSignal(SignalName.PlayerWheelUp, "Green");}
             Emit = false;
         }
         else if (direction.Y > 0 && direction.X == 0) {
-            if (Emit) EmitSignal(SignalName.PlayerWheelDown);
+            if (Emit) {EmitSignal(SignalName.PlayerWheelDown, "Yellow");}
             Emit = false;
         }
         else if (direction.X < 0 && direction.Y == 0) {
-            if (Emit) EmitSignal(SignalName.PlayerWheelLeft);
+            if (Emit) {EmitSignal(SignalName.PlayerWheelLeft, "Beige");}
             Emit = false;
         }
         else if (direction.X > 0 && direction.Y == 0) {
-            if (Emit) EmitSignal(SignalName.PlayerWheelRight);
+            if (Emit) {EmitSignal(SignalName.PlayerWheelRight, "Blue");}
             Emit = false;
         }
 

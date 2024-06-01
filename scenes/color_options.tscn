@@ -50,7 +50,7 @@ size_flags_vertical = 4
 [node name="Label" type="Label" parent="MarginContainer/RightContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Color 1"
+text = "Blue"
 label_settings = SubResource("LabelSettings_3g2gt")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -62,7 +62,7 @@ size_flags_vertical = 4
 
 [node name="Label" type="Label" parent="MarginContainer/LeftContainer"]
 layout_mode = 2
-text = "Color 2"
+text = "Beige"
 label_settings = SubResource("LabelSettings_g8rie")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -74,7 +74,7 @@ size_flags_vertical = 0
 
 [node name="Label" type="Label" parent="MarginContainer/UpContainer"]
 layout_mode = 2
-text = "Color 3"
+text = "Green"
 label_settings = SubResource("LabelSettings_ojtly")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -86,7 +86,7 @@ size_flags_vertical = 8
 
 [node name="Label" type="Label" parent="MarginContainer/DownContainer"]
 layout_mode = 2
-text = "Color 4"
+text = "Yellow"
 label_settings = SubResource("LabelSettings_4cxx7")
 horizontal_alignment = 1
 vertical_alignment = 1
