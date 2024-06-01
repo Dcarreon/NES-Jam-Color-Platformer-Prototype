@@ -6,10 +6,10 @@ public partial class player : CharacterBody2D
 	[Export]
 	ColorOptions ColorWheel;
 	public AnimatedSprite2D AnimatedSprite;
-	StateMachine PlayerStateMachine;
-	PlayerMoveState MoveState;
-	PlayerInAirState InAirState;
-	PlayerWheelInputState WheelInputState;
+	public StateMachine PlayerStateMachine;
+	public PlayerMoveState MoveState;
+	public PlayerInAirState InAirState;
+	public PlayerWheelInputState WheelInputState;
 	public float gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
 	public float Speed = 150.0f;
 	bool ColorWheelInactive = true; // Hard coded solution honestly

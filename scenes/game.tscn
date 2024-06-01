@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://bqg6s4ux1wykv"]
+[gd_scene load_steps=7 format=3 uid="uid://bqg6s4ux1wykv"]
 
+[ext_resource type="Script" path="res://scripts/GameManager.cs" id="1_h7msk"]
 [ext_resource type="Texture2D" uid="uid://cy650qe2mxjp" path="res://assets/world_tileset.png" id="1_uysy6"]
 [ext_resource type="PackedScene" uid="uid://cek5o7xhic0md" path="res://scenes/player.tscn" id="2_ybncc"]
 [ext_resource type="PackedScene" uid="uid://bgtlybjv1skqc" path="res://scenes/color_options.tscn" id="3_wuerg"]
@@ -408,6 +409,7 @@ physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_tydk3")
 
 [node name="game" type="Node2D"]
+script = ExtResource("1_h7msk")
 
 [node name="TileMap" type="TileMap" parent="."]
 y_sort_enabled = true
